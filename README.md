@@ -8,7 +8,6 @@ Proyecto Generado en [Angular CLI](https://github.com/angular/angular-cli) versi
   - MySQL 5.7
   - Angular Cli 6.0
   - Node.js 6.0
-  - Git 2.17
   
 ## Instalación
   - Crear Base de Datos en Mysql `web-testing`, luego importar bd desde `api/bd/web-testing.sql`
@@ -19,6 +18,7 @@ Proyecto Generado en [Angular CLI](https://github.com/angular/angular-cli) versi
       $dbuser="";             // User DB
       $dbpass="";             // PasswordDB
       $dbname="web-testing";  // DB
+      
   - Ir a la carpeta `fron-end/` ejecutar `npm install`
-  - En la carpeta `fron-end/` ejecutar `ng serve -o`
+  - En la carpeta `fron-end/` ejecutar `ng serve -o` luego navegar a `http://localhost:4200`
 
