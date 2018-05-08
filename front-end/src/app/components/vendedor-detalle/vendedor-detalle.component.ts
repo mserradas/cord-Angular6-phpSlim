@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 export class VendedorDetalleComponent implements OnInit {
 
   id = '';
-  public vendedor: {};
+  public vendedor: Vendedor;
   public delete: any = false;
   public VendedorForm: FormGroup;
   public formErrors;
@@ -62,7 +62,7 @@ export class VendedorDetalleComponent implements OnInit {
     if (this.id !== 'new') {
       this.getVendedorDetalle();
     } else {
-      this.vendedor = {};
+      this.vendedor = new Vendedor('', '', '', '', '', '', '', '', '', '0');
       this.delete = true;
     }
   }

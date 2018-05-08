@@ -9,9 +9,9 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class HomeComponent implements OnInit {
 
-  private vendedores: any = [];
+  public vendedores: any = [];
   constructor(
-    private vendedorService: VendedorService,
+    public vendedorService: VendedorService,
     private toaster: ToastrService) {}
 
   ngOnInit() {
