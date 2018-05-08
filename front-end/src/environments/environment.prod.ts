@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  apiUrl: 'http://localhost/web-testing/api'
+  apiUrl: 'http://localhost/cord-Angular4-phpSlim/api'
 };
