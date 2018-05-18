@@ -20,8 +20,8 @@ export class HomeComponent implements OnInit {
 
   getVendedores() {
     this.vendedorService.getVendedores()
-    .subscribe( response => {
-        this.vendedores = response['data'];
+    .subscribe( result => {
+      this.vendedores = result['data'];
       },
       error => {
       if (error['status'] === 200) {

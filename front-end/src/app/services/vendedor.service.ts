@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpResponse, HttpRequest } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import * as environment from '../../environments/environment.prod';
 
 const httpOptions = {
@@ -13,6 +12,7 @@ const httpOptions = {
 export class VendedorService {
 
   private url;
+
   constructor(
     public http: HttpClient) {
     this.url = environment.environment.apiUrl;

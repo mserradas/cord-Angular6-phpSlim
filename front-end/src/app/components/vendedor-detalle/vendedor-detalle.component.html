@@ -23,7 +23,7 @@
                 <label class="col-form-label">Nombre <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <div class="input-group-prepend"><div class="input-group-text"><i class="fas fa-user"></i></div></div>
-                    <input type="text" class="form-control" placeholder="Nombre" formControlName="nombres" [(ngModel)]="vendedor.nombres">
+                    <input type="text" class="form-control" placeholder="Nombre" formControlName="nombres">
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.nombres.required"><span class="alert">Nombre es requerido</span></div>
             </div>
@@ -33,7 +33,7 @@
                 <label class="col-form-label">Apellidos <span class="text-danger">*</span></label>
                 <div class="input-group">
                     <div class="input-group-prepend"><div class="input-group-text"><i class="fas fa-user"></i></div></div>
-                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" formControlName="apellidos" [(ngModel)]="vendedor.apellidos">
+                    <input type="text" class="form-control" id="apellidos" placeholder="Apellidos" formControlName="apellidos">
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.apellidos.required"><span class="alert">Apellidos es requerido</span></div> 
             </div>
@@ -45,7 +45,7 @@
                 <label class="col-form-label">Tipo de Identidad <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-address-card"></i></div></div>
-                    <select class="form-control" placeholder="Tipo de Identidad" formControlName="tipo_identidad" [(ngModel)]="vendedor.tipo_identidad">
+                    <select class="form-control" placeholder="Tipo de Identidad" formControlName="tipo_identidad">
                     <option value="">Seleccione...</option>
                     <option value="DNI">DNI</option>
                     <option value="NIE">NIE</option>
@@ -60,7 +60,7 @@
                 <label class="col-form-label">Numero de Identidad <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-address-card"></i></div></div>
-                    <input type="text" class="form-control" placeholder="Numero Identidad" formControlName="identidad" [(ngModel)]="vendedor.identidad">
+                    <input type="text" class="form-control" placeholder="Numero Identidad" formControlName="identidad">
                 </div> 
                 <div class="alert alert-danger" *ngIf="formErrors.identidad.required"><span class="alert">Numero de Identidad es requerido!</span></div>
                 <div class="alert alert-danger" *ngIf="formErrors.identidad.maxlength"><span class="alert">Formato Invalido!</span></div>                       
@@ -73,7 +73,7 @@
                 <label class="col-form-label">Fecha de Nacimiento <span class="text-danger">*</span></label>
                 <div class="input-group date">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-calendar"></i></div></div>
-                    <input type="date" class="form-control" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento" [(ngModel)]="vendedor.fecha_nacimiento">
+                    <input (click)="d.toggle()" type="text" ngbDatepicker #d="ngbDatepicker" class="form-control" placeholder="Fecha de Nacimiento" formControlName="fecha_nacimiento">
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.fecha_nacimiento.required"><span class="alert">Fecha de Nacimiento es requerido</span></div> 
             </div>
@@ -83,7 +83,7 @@
                 <label class="col-form-label">Genero <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-venus-mars"></i></div></div>
-                    <select class="form-control" placeholder="Genero" formControlName="genero" [(ngModel)]="vendedor.genero">
+                    <select class="form-control" placeholder="Genero" formControlName="genero">
                         <option value="">Seleccione...</option>    
                         <option value="Femenino">Femenino</option>
                         <option value="Masculino">Masculino</option>
@@ -99,7 +99,7 @@
                 <label class="col-form-label">Correo Electronico <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-envelope"></i></div></div>
-                    <input type="email" class="form-control" id="correo" placeholder="Correo Electronico" formControlName="correo" [(ngModel)]="vendedor.correo">
+                    <input type="email" class="form-control" id="correo" placeholder="Correo Electronico" formControlName="correo">
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.correo.email"><span class="alert">Formato Invalido</span></div> 
                 <div class="alert alert-danger" *ngIf="formErrors.correo.required"><span class="alert">Correo Electronico es requerido</span></div>
@@ -110,7 +110,7 @@
                 <label class="col-form-label">Telefono Movil <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-phone"></i></div></div>
-                    <input type="number" class="form-control" placeholder="Telefono Movil" formControlName="telefono" [(ngModel)]="vendedor.telefono">
+                    <input type="number" class="form-control" placeholder="Telefono Movil" formControlName="telefono">
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.telefono.required"><span class="alert">Telefono es requerido</span></div>
             </div>
@@ -122,7 +122,7 @@
                 <label class="col-form-label">Dirección <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fa fa-map-marker"></i></div></div>
-                    <input ype="text" class="form-control" placeholder="Dirección" formControlName="direccion" [(ngModel)]="vendedor.direccion">  
+                    <input ype="text" class="form-control" placeholder="Dirección" formControlName="direccion">  
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.direccion.required"><span class="alert">Dirección es requerido!</span></div> 
             </div>
@@ -132,7 +132,7 @@
                 <label class="col-form-label">Numero de Ventas <span class="text-danger">*</span></label>
                 <div class="input-group">
                 <div class="input-group-prepend"><div class="input-group-text"><i class="fas fa-cart-plus"></i></div></div>
-                    <input type="number" class="form-control" placeholder="Numero de Ventas" formControlName="ventas" [(ngModel)]="vendedor.ventas">
+                    <input type="number" class="form-control" placeholder="Numero de Ventas" formControlName="ventas">
                 </div>
                 <div class="alert alert-danger" *ngIf="formErrors.ventas.required"><span class="alert">Numero de Ventas es requerido!</span></div>
             </div>

@@ -17,8 +17,8 @@ if($method == "OPTIONS") {
 $app = new App();
 
 	$dbhost="127.0.0.1";    // IP 
-    $dbuser="testing";		// User DB
-    $dbpass="e9dwga2dgi=v"; // PasswordDB
+    $dbuser="root";		// User DB
+    $dbpass=""; // PasswordDB
     $dbname="web-testing";  // DB
 	$db = new mysqli(
 		$dbhost,   

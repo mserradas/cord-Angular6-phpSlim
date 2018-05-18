@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 
 // Components
 import { AppComponent } from './app.component';
@@ -33,6 +34,7 @@ import { routing, appRoutingProviders } from './app.routing';
     FormsModule,
     ReactiveFormsModule,
     routing,
+    NgbModule.forRoot(),
     ToastrModule.forRoot(),
     BrowserAnimationsModule
 

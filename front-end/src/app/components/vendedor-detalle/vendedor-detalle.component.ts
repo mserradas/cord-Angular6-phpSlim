@@ -1,14 +1,52 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Injectable } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { VendedorService } from '../../services/vendedor.service';
 import { Vendedor } from '../../models/vendedor';
 import { ToastrService } from 'ngx-toastr';
+import { NgbDatepickerI18n, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+
+const I18N_VALUES = {
+  'es': {
+    weekdays: ['Lu', 'Ma', 'Mi', 'Ju', 'Vi', 'Sa', 'Do'],
+    months: ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun', 'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic'],
+  }
+  // other languages you would support
+};
+
+@Injectable()
+export class I18n {
+  language = 'es';
+}
+
+@Injectable()
+export class CustomDatepickerI18n extends NgbDatepickerI18n {
+
+  constructor(private _i18n: I18n) {
+    super();
+  }
+
+  getWeekdayShortName(weekday: number): string {
+    return I18N_VALUES[this._i18n.language].weekdays[weekday - 1];
+  }
+  getMonthShortName(month: number): string {
+    return I18N_VALUES[this._i18n.language].months[month - 1];
+  }
+  getMonthFullName(month: number): string {
+    return this.getMonthShortName(month);
+  }
+
+  getDayAriaLabel(date: NgbDateStruct): string {
+    return `${date.day}-${date.month}-${date.year}`;
+  }
+}
+
 
 @Component({
   selector: 'app-vendedor-detalle',
   templateUrl: './vendedor-detalle.component.html',
-  styleUrls: ['./vendedor-detalle.component.css']
+  styleUrls: ['./vendedor-detalle.component.css'],
+  providers: [I18n, {provide: NgbDatepickerI18n, useClass: CustomDatepickerI18n}]
 })
 export class VendedorDetalleComponent implements OnInit {
 
@@ -70,9 +108,22 @@ export class VendedorDetalleComponent implements OnInit {
   getVendedorDetalle() {
     this.vendedorService.getVendedorDetalle(this.id)
     .subscribe((response) => {
-       this.vendedor = response['data'];
+      this.VendedorForm.get = response['data'];
     },
-      error => { console.log(<any>error);
+    error => {
+      if (error['status'] === 200) {
+        console.log(<any>error);
+        this.toaster.error('Error interno en el servidor, Acceso denegado', 'Conexión sin Exito', {
+          closeButton: true,
+          progressBar: true,
+          });
+      } else {
+        console.log(<any>error);
+      this.toaster.error('Error interno en el servidor, comunicar al administrador', 'Conexión sin Exito', {
+        closeButton: true,
+        progressBar: true,
+        });
+      }
       }
     );
   }
@@ -116,6 +167,7 @@ export class VendedorDetalleComponent implements OnInit {
   }
 
   vendedorCreate() {
+    console.log(this.VendedorForm.value);
     this.vendedorService.vendedorCreate(this.vendedor)
       .subscribe((response) => {
         if (response['code'] === 200) {

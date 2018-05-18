@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let vendedor of vendedores.data">
+          <tr *ngFor="let vendedor of vendedores">
             <td><a routerLink="/vendedor-detalle/{{vendedor.id}}">{{vendedor.nombres}} {{vendedor.apellidos}}</a></td>
             <td>{{vendedor.identidad}}</td>
             <td>{{vendedor.telefono}}</td>
