@@ -1,4 +1,4 @@
-# CORD Angular 4 PHP Slim
+# CORD Angular 6 PHP Slim
 
 Proyecto Generado en [Angular CLI](https://github.com/angular/angular-cli) version 6.0.0 y Slim 3.0.
 
