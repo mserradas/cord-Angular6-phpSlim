@@ -13,9 +13,9 @@
                     <button type="submit" [disabled]="VendedorForm.invalid" class="btn btn-primary" style="width: 100px">Guardar</button>
                     <button type="button" [disabled]=delete class="btn btn-danger"(click)="vendedorDelete()"style="width: 100px">Eliminar</button>
                 </div>
-            </div>                
+            </div>
         </div>
-    </div>    
+    </div>
     <hr class="bg-info">
     <div class="row">
         <div class="col">
@@ -52,6 +52,7 @@
                     <option value="Pasaporte">Pasaporte</option>
                     </select>
                 </div>
+          
                 <div class="alert alert-danger" *ngIf="formErrors.tipo_identidad.required"><span class="alert">Tipo de Identidad es requerido</span></div>
             </div>
         </div>
